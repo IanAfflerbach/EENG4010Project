@@ -1,0 +1,5 @@
+python==3.7
+moviepy
+numpy
+pandas
+pytube
