@@ -18,12 +18,11 @@ for x in arr:
     video = None;
     try:
         video = YouTube(x[1])
+        tag = video.streams.filter(file_extension = "mp4")[0].itag
+        video.streams.get_by_itag(tag).download(output_path="download/raw_videos", filename="video_" + str(x[0]) + ".mp4")
     except:
         print("Error Downloading Video: %d" % x[0])
         continue
-        
-    tag = video.streams.filter(file_extension = "mp4")[0].itag
-    video.streams.get_by_itag(tag).download(output_path="download/raw_videos", filename="video_" + str(x[0]) + ".mp4")
   
     try:
         with VideoFileClip("download/raw_videos/video_" + str(x[0]) + ".mp4") as clip:
@@ -45,8 +44,10 @@ for x in arr:
         print(e)
         quit()
     
+    '''
     if x[0] > 1:
         break
+    '''
     
 with open('config.json', 'w') as out:
     json.dump(config, out, indent=2)
