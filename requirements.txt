@@ -3,3 +3,8 @@ moviepy
 numpy
 pandas
 pytube
+tensorflow
+matplotlib
+scikit-image
+librosa
+opencv-python
