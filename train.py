@@ -51,8 +51,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.1)
 model = models.Sequential()
 
 model.add(Input(shape=(n,))) # input layer
-# model.add(layers.Dense(int(n/2)))
-# model.add(layers.Dense(int(n/4)))
+model.add(layers.Dense(136))
 model.add(layers.Dense(34))
 model.add(layers.Dense(17)) # output layer
 

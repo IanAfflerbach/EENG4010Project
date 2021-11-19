@@ -98,4 +98,7 @@ if __name__ == '__main__':
     model = models.load_model(config["model_dir"])
     
     y_pred = model.predict(features)
+
+    
+
     print(y_pred)
