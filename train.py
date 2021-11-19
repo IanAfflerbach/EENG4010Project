@@ -10,6 +10,7 @@ config = {}
 with open('config.json', 'r') as infile:
     config = json.load(infile)
 
+'''
 VIDEO_FILE = "metadata/video_list.csv"
 df = pd.read_csv(VIDEO_FILE)
 arr = np.array([df["Online_id"], df["AVG_Valence"], df["AVG_Arousal"], df["AVG_Dominance"]])
@@ -23,29 +24,53 @@ for i in range(0, len(config["videos"])):
     X.append(np.load(vid_cfg["input"]))
     Y.append(arr[int(vid_cfg["id"])])
 X = np.asarray(X)
+Y = np.asarray(Y) / 9
+'''
+
+VIDEO_FILE = "metadata/online_ratings.csv"
+df = pd.read_csv(VIDEO_FILE)
+arr = np.array([df["Online_id"], df["Wheel_slice"]])
+arr = [arr[:, i] for i in range(0, np.shape(arr)[1])]
+
+X = []
+Y = []
+for i in range(0, len(config["videos"])):
+    vid_cfg = config["videos"][i]
+    all_Y = list(filter(lambda x: x[0] == vid_cfg["id"], arr)) 
+
+    for j in range(0, len(all_Y)):
+        X.append(np.load(vid_cfg["input"]))
+        Y.append(all_Y[j][1])
+
+X = np.asarray(X)
 Y = np.asarray(Y)
 
 n = np.shape(X)[1]
-X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.33)
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.1)
 
 model = models.Sequential()
 
 model.add(Input(shape=(n,))) # input layer
-model.add(layers.Dense(3)) # output layer
+# model.add(layers.Dense(int(n/2)))
+# model.add(layers.Dense(int(n/4)))
+model.add(layers.Dense(34))
+model.add(layers.Dense(17)) # output layer
 
-model.summary()
- 
-model.compile(loss='mean_squared_error', 
+'''
+model.compile(loss='mse', 
                optimizer='adam', 
-               metrics=['mean_squared_error'])
+               metrics=[tf.keras.metrics.MeanSquaredError()])
+'''
+
+model.compile(optimizer='sgd', loss=tf.keras.losses.SparseCategoricalCrossentropy())
 
 print(np.shape(X_train))
 print("Fit model on training data")
 history = model.fit(
     X_train,
     y_train,
-    batch_size=64,
-    epochs=2,
+    batch_size=16,
+    epochs=16,
     # We pass some validation for
     # monitoring validation loss and metrics
     # at the end of each epoch
