@@ -42,10 +42,14 @@ if __name__ == '__main__':
     with open('config.json', 'r') as infile:
         config = json.load(infile)
 
-    test_url = "https://www.youtube.com/watch?v=ere2Mstl8ww&ab_channel=RoyalBlood"
+    # test_url = "https://www.youtube.com/watch?v=ere2Mstl8ww&ab_channel=RoyalBlood"
+    # test_url = "https://www.youtube.com/watch?v=bpOSxM0rNPM&ab_channel=OfficialArcticMonkeys"
+    test_url = "https://www.youtube.com/watch?v=8UVNT4wvIGY&ab_channel=gotyemusic"
     video = YouTube(test_url)
     tag = video.streams.filter(file_extension = "mp4")[0].itag
     video.streams.get_by_itag(tag).download(output_path="temp", filename="test.mp4")
+
+    # quit()
 
     with VideoFileClip("temp/test.mp4") as clip:
         audio = clip.audio
@@ -98,7 +102,11 @@ if __name__ == '__main__':
     model = models.load_model(config["model_dir"])
     
     y_pred = model.predict(features)
+    y_pred[y_pred < 0] = 0
+    y_pred = y_pred[0] / np.sum(y_pred)
+    sort_pred_ind = y_pred.argsort()
 
+    emotion_labels = ["uncertain", "pride", "elation", "joy", "satisfaction", "relief", "hope", "interest", "surprise", "sadness", "fear", "shame", "guilt", "envy", "disgust", "contempt", "anger"]
     
-
-    print(y_pred)
+    for i in range(len(sort_pred_ind) - 1, len(sort_pred_ind) - 4, -1):
+        print(emotion_labels[sort_pred_ind[i]], y_pred[sort_pred_ind[i]] * 100)
