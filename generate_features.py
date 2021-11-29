@@ -31,19 +31,24 @@ for ci in range(0, len(config["videos"])):
     k_index = np.asarray([int(i * k) for i in range(0, np.shape(spec)[0])])
     sample_images = []
     for i in k_index:
-        sample_images.append(images[i] / 255)
+        image = images[i].reshape(16 * 16, 3)
+        sample_images.append(image / 255)
         
     # reformat images
     images = np.asarray(sample_images)
-    shape = np.shape(images)
-    images = images.reshape((shape[0], shape[1] * shape[2] * shape[3]))
-    features = np.concatenate((spec / 255, images), axis=1).flatten()
+    # shape = np.shape(images)
+    # images = images.reshape((shape[0], shape[1] * shape[2] * shape[3]))
+    # features = np.concatenate((spec / 255, images), axis=1) # .flatten()
 
-    with open('features/input_features_' + str(config["videos"][ci]["id"]) + '.npy', 'wb') as f:
-        np.save(f, features)
+    with open('features/video_input_features_' + str(config["videos"][ci]["id"]) + '.npy', 'wb') as f:
+        np.save(f, images)
+        
+    with open('features/audio_input_features_' + str(config["videos"][ci]["id"]) + '.npy', 'wb') as f:
+        np.save(f, spec / 255)
         
     print("Feature File Saved: %d" % config["videos"][ci]["id"])
-    config["videos"][ci]["input"] = 'features/input_features_' + str(config["videos"][ci]["id"]) + '.npy'
+    config["videos"][ci]["video_input"] = 'features/video_input_features_' + str(config["videos"][ci]["id"]) + '.npy'
+    config["videos"][ci]["audio_input"] = 'features/audio_input_features_' + str(config["videos"][ci]["id"]) + '.npy'
 
 with open('config.json', 'w') as out:
     json.dump(config, out, indent=2)

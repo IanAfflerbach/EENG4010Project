@@ -5,414 +5,536 @@
       "video_file": "download/trimmed_videos/video_1_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_1_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_1_spec.png",
-      "input": "features/input_features_1.npy"
+      "input": "features/input_features_1.npy",
+      "video_input": "features/video_input_features_1.npy",
+      "audio_input": "features/audio_input_features_1.npy"
     },
     {
       "id": 2,
       "video_file": "download/trimmed_videos/video_2_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_2_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_2_spec.png",
-      "input": "features/input_features_2.npy"
+      "input": "features/input_features_2.npy",
+      "video_input": "features/video_input_features_2.npy",
+      "audio_input": "features/audio_input_features_2.npy"
     },
     {
       "id": 3,
       "video_file": "download/trimmed_videos/video_3_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_3_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_3_spec.png",
-      "input": "features/input_features_3.npy"
+      "input": "features/input_features_3.npy",
+      "video_input": "features/video_input_features_3.npy",
+      "audio_input": "features/audio_input_features_3.npy"
     },
     {
       "id": 12,
       "video_file": "download/trimmed_videos/video_12_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_12_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_12_spec.png",
-      "input": "features/input_features_12.npy"
+      "input": "features/input_features_12.npy",
+      "video_input": "features/video_input_features_12.npy",
+      "audio_input": "features/audio_input_features_12.npy"
     },
     {
       "id": 13,
       "video_file": "download/trimmed_videos/video_13_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_13_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_13_spec.png",
-      "input": "features/input_features_13.npy"
+      "input": "features/input_features_13.npy",
+      "video_input": "features/video_input_features_13.npy",
+      "audio_input": "features/audio_input_features_13.npy"
     },
     {
       "id": 14,
       "video_file": "download/trimmed_videos/video_14_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_14_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_14_spec.png",
-      "input": "features/input_features_14.npy"
+      "input": "features/input_features_14.npy",
+      "video_input": "features/video_input_features_14.npy",
+      "audio_input": "features/audio_input_features_14.npy"
     },
     {
       "id": 16,
       "video_file": "download/trimmed_videos/video_16_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_16_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_16_spec.png",
-      "input": "features/input_features_16.npy"
+      "input": "features/input_features_16.npy",
+      "video_input": "features/video_input_features_16.npy",
+      "audio_input": "features/audio_input_features_16.npy"
     },
     {
       "id": 17,
       "video_file": "download/trimmed_videos/video_17_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_17_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_17_spec.png",
-      "input": "features/input_features_17.npy"
+      "input": "features/input_features_17.npy",
+      "video_input": "features/video_input_features_17.npy",
+      "audio_input": "features/audio_input_features_17.npy"
     },
     {
       "id": 18,
       "video_file": "download/trimmed_videos/video_18_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_18_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_18_spec.png",
-      "input": "features/input_features_18.npy"
+      "input": "features/input_features_18.npy",
+      "video_input": "features/video_input_features_18.npy",
+      "audio_input": "features/audio_input_features_18.npy"
     },
     {
       "id": 20,
       "video_file": "download/trimmed_videos/video_20_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_20_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_20_spec.png",
-      "input": "features/input_features_20.npy"
+      "input": "features/input_features_20.npy",
+      "video_input": "features/video_input_features_20.npy",
+      "audio_input": "features/audio_input_features_20.npy"
     },
     {
       "id": 22,
       "video_file": "download/trimmed_videos/video_22_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_22_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_22_spec.png",
-      "input": "features/input_features_22.npy"
+      "input": "features/input_features_22.npy",
+      "video_input": "features/video_input_features_22.npy",
+      "audio_input": "features/audio_input_features_22.npy"
     },
     {
       "id": 23,
       "video_file": "download/trimmed_videos/video_23_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_23_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_23_spec.png",
-      "input": "features/input_features_23.npy"
+      "input": "features/input_features_23.npy",
+      "video_input": "features/video_input_features_23.npy",
+      "audio_input": "features/audio_input_features_23.npy"
     },
     {
       "id": 24,
       "video_file": "download/trimmed_videos/video_24_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_24_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_24_spec.png",
-      "input": "features/input_features_24.npy"
+      "input": "features/input_features_24.npy",
+      "video_input": "features/video_input_features_24.npy",
+      "audio_input": "features/audio_input_features_24.npy"
     },
     {
       "id": 27,
       "video_file": "download/trimmed_videos/video_27_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_27_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_27_spec.png",
-      "input": "features/input_features_27.npy"
+      "input": "features/input_features_27.npy",
+      "video_input": "features/video_input_features_27.npy",
+      "audio_input": "features/audio_input_features_27.npy"
     },
     {
       "id": 28,
       "video_file": "download/trimmed_videos/video_28_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_28_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_28_spec.png",
-      "input": "features/input_features_28.npy"
+      "input": "features/input_features_28.npy",
+      "video_input": "features/video_input_features_28.npy",
+      "audio_input": "features/audio_input_features_28.npy"
     },
     {
       "id": 29,
       "video_file": "download/trimmed_videos/video_29_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_29_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_29_spec.png",
-      "input": "features/input_features_29.npy"
+      "input": "features/input_features_29.npy",
+      "video_input": "features/video_input_features_29.npy",
+      "audio_input": "features/audio_input_features_29.npy"
     },
     {
       "id": 31,
       "video_file": "download/trimmed_videos/video_31_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_31_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_31_spec.png",
-      "input": "features/input_features_31.npy"
+      "input": "features/input_features_31.npy",
+      "video_input": "features/video_input_features_31.npy",
+      "audio_input": "features/audio_input_features_31.npy"
     },
     {
       "id": 32,
       "video_file": "download/trimmed_videos/video_32_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_32_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_32_spec.png",
-      "input": "features/input_features_32.npy"
+      "input": "features/input_features_32.npy",
+      "video_input": "features/video_input_features_32.npy",
+      "audio_input": "features/audio_input_features_32.npy"
     },
     {
       "id": 33,
       "video_file": "download/trimmed_videos/video_33_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_33_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_33_spec.png",
-      "input": "features/input_features_33.npy"
+      "input": "features/input_features_33.npy",
+      "video_input": "features/video_input_features_33.npy",
+      "audio_input": "features/audio_input_features_33.npy"
     },
     {
       "id": 38,
       "video_file": "download/trimmed_videos/video_38_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_38_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_38_spec.png",
-      "input": "features/input_features_38.npy"
+      "input": "features/input_features_38.npy",
+      "video_input": "features/video_input_features_38.npy",
+      "audio_input": "features/audio_input_features_38.npy"
     },
     {
       "id": 39,
       "video_file": "download/trimmed_videos/video_39_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_39_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_39_spec.png",
-      "input": "features/input_features_39.npy"
+      "input": "features/input_features_39.npy",
+      "video_input": "features/video_input_features_39.npy",
+      "audio_input": "features/audio_input_features_39.npy"
     },
     {
       "id": 40,
       "video_file": "download/trimmed_videos/video_40_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_40_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_40_spec.png",
-      "input": "features/input_features_40.npy"
+      "input": "features/input_features_40.npy",
+      "video_input": "features/video_input_features_40.npy",
+      "audio_input": "features/audio_input_features_40.npy"
     },
     {
       "id": 41,
       "video_file": "download/trimmed_videos/video_41_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_41_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_41_spec.png",
-      "input": "features/input_features_41.npy"
+      "input": "features/input_features_41.npy",
+      "video_input": "features/video_input_features_41.npy",
+      "audio_input": "features/audio_input_features_41.npy"
     },
     {
       "id": 44,
       "video_file": "download/trimmed_videos/video_44_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_44_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_44_spec.png",
-      "input": "features/input_features_44.npy"
+      "input": "features/input_features_44.npy",
+      "video_input": "features/video_input_features_44.npy",
+      "audio_input": "features/audio_input_features_44.npy"
     },
     {
       "id": 45,
       "video_file": "download/trimmed_videos/video_45_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_45_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_45_spec.png",
-      "input": "features/input_features_45.npy"
+      "input": "features/input_features_45.npy",
+      "video_input": "features/video_input_features_45.npy",
+      "audio_input": "features/audio_input_features_45.npy"
     },
     {
       "id": 48,
       "video_file": "download/trimmed_videos/video_48_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_48_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_48_spec.png",
-      "input": "features/input_features_48.npy"
+      "input": "features/input_features_48.npy",
+      "video_input": "features/video_input_features_48.npy",
+      "audio_input": "features/audio_input_features_48.npy"
     },
     {
       "id": 49,
       "video_file": "download/trimmed_videos/video_49_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_49_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_49_spec.png",
-      "input": "features/input_features_49.npy"
+      "input": "features/input_features_49.npy",
+      "video_input": "features/video_input_features_49.npy",
+      "audio_input": "features/audio_input_features_49.npy"
     },
     {
       "id": 51,
       "video_file": "download/trimmed_videos/video_51_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_51_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_51_spec.png",
-      "input": "features/input_features_51.npy"
+      "input": "features/input_features_51.npy",
+      "video_input": "features/video_input_features_51.npy",
+      "audio_input": "features/audio_input_features_51.npy"
     },
     {
       "id": 52,
       "video_file": "download/trimmed_videos/video_52_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_52_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_52_spec.png",
-      "input": "features/input_features_52.npy"
+      "input": "features/input_features_52.npy",
+      "video_input": "features/video_input_features_52.npy",
+      "audio_input": "features/audio_input_features_52.npy"
     },
     {
       "id": 53,
       "video_file": "download/trimmed_videos/video_53_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_53_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_53_spec.png",
-      "input": "features/input_features_53.npy"
+      "input": "features/input_features_53.npy",
+      "video_input": "features/video_input_features_53.npy",
+      "audio_input": "features/audio_input_features_53.npy"
     },
     {
       "id": 54,
       "video_file": "download/trimmed_videos/video_54_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_54_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_54_spec.png",
-      "input": "features/input_features_54.npy"
+      "input": "features/input_features_54.npy",
+      "video_input": "features/video_input_features_54.npy",
+      "audio_input": "features/audio_input_features_54.npy"
     },
     {
       "id": 55,
       "video_file": "download/trimmed_videos/video_55_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_55_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_55_spec.png",
-      "input": "features/input_features_55.npy"
+      "input": "features/input_features_55.npy",
+      "video_input": "features/video_input_features_55.npy",
+      "audio_input": "features/audio_input_features_55.npy"
     },
     {
       "id": 56,
       "video_file": "download/trimmed_videos/video_56_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_56_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_56_spec.png",
-      "input": "features/input_features_56.npy"
+      "input": "features/input_features_56.npy",
+      "video_input": "features/video_input_features_56.npy",
+      "audio_input": "features/audio_input_features_56.npy"
     },
     {
       "id": 57,
       "video_file": "download/trimmed_videos/video_57_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_57_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_57_spec.png",
-      "input": "features/input_features_57.npy"
+      "input": "features/input_features_57.npy",
+      "video_input": "features/video_input_features_57.npy",
+      "audio_input": "features/audio_input_features_57.npy"
     },
     {
       "id": 58,
       "video_file": "download/trimmed_videos/video_58_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_58_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_58_spec.png",
-      "input": "features/input_features_58.npy"
+      "input": "features/input_features_58.npy",
+      "video_input": "features/video_input_features_58.npy",
+      "audio_input": "features/audio_input_features_58.npy"
     },
     {
       "id": 59,
       "video_file": "download/trimmed_videos/video_59_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_59_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_59_spec.png",
-      "input": "features/input_features_59.npy"
+      "input": "features/input_features_59.npy",
+      "video_input": "features/video_input_features_59.npy",
+      "audio_input": "features/audio_input_features_59.npy"
     },
     {
       "id": 60,
       "video_file": "download/trimmed_videos/video_60_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_60_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_60_spec.png",
-      "input": "features/input_features_60.npy"
+      "input": "features/input_features_60.npy",
+      "video_input": "features/video_input_features_60.npy",
+      "audio_input": "features/audio_input_features_60.npy"
     },
     {
       "id": 63,
       "video_file": "download/trimmed_videos/video_63_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_63_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_63_spec.png",
-      "input": "features/input_features_63.npy"
+      "input": "features/input_features_63.npy",
+      "video_input": "features/video_input_features_63.npy",
+      "audio_input": "features/audio_input_features_63.npy"
     },
     {
       "id": 65,
       "video_file": "download/trimmed_videos/video_65_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_65_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_65_spec.png",
-      "input": "features/input_features_65.npy"
+      "input": "features/input_features_65.npy",
+      "video_input": "features/video_input_features_65.npy",
+      "audio_input": "features/audio_input_features_65.npy"
     },
     {
       "id": 66,
       "video_file": "download/trimmed_videos/video_66_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_66_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_66_spec.png",
-      "input": "features/input_features_66.npy"
+      "input": "features/input_features_66.npy",
+      "video_input": "features/video_input_features_66.npy",
+      "audio_input": "features/audio_input_features_66.npy"
     },
     {
       "id": 70,
       "video_file": "download/trimmed_videos/video_70_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_70_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_70_spec.png",
-      "input": "features/input_features_70.npy"
+      "input": "features/input_features_70.npy",
+      "video_input": "features/video_input_features_70.npy",
+      "audio_input": "features/audio_input_features_70.npy"
     },
     {
       "id": 71,
       "video_file": "download/trimmed_videos/video_71_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_71_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_71_spec.png",
-      "input": "features/input_features_71.npy"
+      "input": "features/input_features_71.npy",
+      "video_input": "features/video_input_features_71.npy",
+      "audio_input": "features/audio_input_features_71.npy"
     },
     {
       "id": 72,
       "video_file": "download/trimmed_videos/video_72_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_72_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_72_spec.png",
-      "input": "features/input_features_72.npy"
+      "input": "features/input_features_72.npy",
+      "video_input": "features/video_input_features_72.npy",
+      "audio_input": "features/audio_input_features_72.npy"
     },
     {
       "id": 73,
       "video_file": "download/trimmed_videos/video_73_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_73_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_73_spec.png",
-      "input": "features/input_features_73.npy"
+      "input": "features/input_features_73.npy",
+      "video_input": "features/video_input_features_73.npy",
+      "audio_input": "features/audio_input_features_73.npy"
     },
     {
       "id": 75,
       "video_file": "download/trimmed_videos/video_75_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_75_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_75_spec.png",
-      "input": "features/input_features_75.npy"
+      "input": "features/input_features_75.npy",
+      "video_input": "features/video_input_features_75.npy",
+      "audio_input": "features/audio_input_features_75.npy"
     },
     {
       "id": 76,
       "video_file": "download/trimmed_videos/video_76_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_76_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_76_spec.png",
-      "input": "features/input_features_76.npy"
+      "input": "features/input_features_76.npy",
+      "video_input": "features/video_input_features_76.npy",
+      "audio_input": "features/audio_input_features_76.npy"
     },
     {
       "id": 81,
       "video_file": "download/trimmed_videos/video_81_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_81_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_81_spec.png",
-      "input": "features/input_features_81.npy"
+      "input": "features/input_features_81.npy",
+      "video_input": "features/video_input_features_81.npy",
+      "audio_input": "features/audio_input_features_81.npy"
     },
     {
       "id": 83,
       "video_file": "download/trimmed_videos/video_83_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_83_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_83_spec.png",
-      "input": "features/input_features_83.npy"
+      "input": "features/input_features_83.npy",
+      "video_input": "features/video_input_features_83.npy",
+      "audio_input": "features/audio_input_features_83.npy"
     },
     {
       "id": 85,
       "video_file": "download/trimmed_videos/video_85_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_85_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_85_spec.png",
-      "input": "features/input_features_85.npy"
+      "input": "features/input_features_85.npy",
+      "video_input": "features/video_input_features_85.npy",
+      "audio_input": "features/audio_input_features_85.npy"
     },
     {
       "id": 86,
       "video_file": "download/trimmed_videos/video_86_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_86_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_86_spec.png",
-      "input": "features/input_features_86.npy"
+      "input": "features/input_features_86.npy",
+      "video_input": "features/video_input_features_86.npy",
+      "audio_input": "features/audio_input_features_86.npy"
     },
     {
       "id": 88,
       "video_file": "download/trimmed_videos/video_88_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_88_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_88_spec.png",
-      "input": "features/input_features_88.npy"
+      "input": "features/input_features_88.npy",
+      "video_input": "features/video_input_features_88.npy",
+      "audio_input": "features/audio_input_features_88.npy"
     },
     {
       "id": 95,
       "video_file": "download/trimmed_videos/video_95_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_95_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_95_spec.png",
-      "input": "features/input_features_95.npy"
+      "input": "features/input_features_95.npy",
+      "video_input": "features/video_input_features_95.npy",
+      "audio_input": "features/audio_input_features_95.npy"
     },
     {
       "id": 96,
       "video_file": "download/trimmed_videos/video_96_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_96_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_96_spec.png",
-      "input": "features/input_features_96.npy"
+      "input": "features/input_features_96.npy",
+      "video_input": "features/video_input_features_96.npy",
+      "audio_input": "features/audio_input_features_96.npy"
     },
     {
       "id": 99,
       "video_file": "download/trimmed_videos/video_99_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_99_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_99_spec.png",
-      "input": "features/input_features_99.npy"
+      "input": "features/input_features_99.npy",
+      "video_input": "features/video_input_features_99.npy",
+      "audio_input": "features/audio_input_features_99.npy"
     },
     {
       "id": 101,
       "video_file": "download/trimmed_videos/video_101_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_101_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_101_spec.png",
-      "input": "features/input_features_101.npy"
+      "input": "features/input_features_101.npy",
+      "video_input": "features/video_input_features_101.npy",
+      "audio_input": "features/audio_input_features_101.npy"
     },
     {
       "id": 110,
       "video_file": "download/trimmed_videos/video_110_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_110_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_110_spec.png",
-      "input": "features/input_features_110.npy"
+      "input": "features/input_features_110.npy",
+      "video_input": "features/video_input_features_110.npy",
+      "audio_input": "features/audio_input_features_110.npy"
     },
     {
       "id": 114,
       "video_file": "download/trimmed_videos/video_114_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_114_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_114_spec.png",
-      "input": "features/input_features_114.npy"
+      "input": "features/input_features_114.npy",
+      "video_input": "features/video_input_features_114.npy",
+      "audio_input": "features/audio_input_features_114.npy"
     },
     {
       "id": 119,
       "video_file": "download/trimmed_videos/video_119_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_119_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_119_spec.png",
-      "input": "features/input_features_119.npy"
+      "input": "features/input_features_119.npy",
+      "video_input": "features/video_input_features_119.npy",
+      "audio_input": "features/audio_input_features_119.npy"
     },
     {
       "id": 120,
       "video_file": "download/trimmed_videos/video_120_trimmed.mp4",
       "audio_file": "download/trimmed_audio/audio_120_trimmed.wav",
       "spectrogram_file": "download/spectrograms/audio_120_spec.png",
-      "input": "features/input_features_120.npy"
+      "input": "features/input_features_120.npy",
+      "video_input": "features/video_input_features_120.npy",
+      "audio_input": "features/audio_input_features_120.npy"
     }
   ],
-  "model_dir": "model"
+  "model_dir": "model",
+  "input_size": [
+    385,
+    896
+  ]
 }

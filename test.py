@@ -1,6 +1,7 @@
 import argparse
 import json
 import cv2
+import csv
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras import datasets, layers, models, Input, optimizers, losses, metrics
@@ -41,72 +42,98 @@ if __name__ == '__main__':
     config = {}
     with open('config.json', 'r') as infile:
         config = json.load(infile)
+        
+    input_csv = []
+    with open("test_file.csv") as csvfile:
+        spamreader = csv.reader(csvfile)
+        for row in spamreader:
+            input_csv.append(row)
+            
+    input_csv[0].append("1st label")
+    input_csv[0].append("1st rating")
+    input_csv[0].append("2nd label")
+    input_csv[0].append("2nd rating")
+    input_csv[0].append("3rd label")
+    input_csv[0].append("3rd rating")
 
-    # test_url = "https://www.youtube.com/watch?v=ere2Mstl8ww&ab_channel=RoyalBlood"
-    # test_url = "https://www.youtube.com/watch?v=bpOSxM0rNPM&ab_channel=OfficialArcticMonkeys"
-    test_url = "https://www.youtube.com/watch?v=8UVNT4wvIGY&ab_channel=gotyemusic"
-    video = YouTube(test_url)
-    tag = video.streams.filter(file_extension = "mp4")[0].itag
-    video.streams.get_by_itag(tag).download(output_path="temp", filename="test.mp4")
+    for csv_i in range(1, len(input_csv)):
+        test_url = input_csv[csv_i][2]
+        video = YouTube(test_url)
+        tag = video.streams.filter(file_extension = "mp4")[0].itag
+        video.streams.get_by_itag(tag).download(output_path="temp", filename="test.mp4")
 
-    # quit()
+        with VideoFileClip("temp/test.mp4") as clip:
+            audio = clip.audio
+            audio.write_audiofile("temp/test.wav", ffmpeg_params=["-ac", "1"])
 
-    with VideoFileClip("temp/test.mp4") as clip:
-        audio = clip.audio
-        audio.write_audiofile("temp/test.wav", ffmpeg_params=["-ac", "1"])
+        # load audio. Using example from librosa
+        path = "temp/test.wav"   # "download/trimmed_audio/audio_1_trimmed.wav"
+        y, sr = librosa.load(path)
+        out = 'temp/test_spec.png'
 
-    # load audio. Using example from librosa
-    path = "temp/test.wav"   # "download/trimmed_audio/audio_1_trimmed.wav"
-    y, sr = librosa.load(path)
-    out = 'temp/test_spec.png'
+        # extract a fixed length window
+        start_sample = 0 # starting at beginning
+        length_samples = time_steps*hop_length
+        window = y[start_sample:start_sample+length_samples]
+        
+        # convert to PNG
+        spectrogram_image(window, sr=sr, out=out, hop_length=hop_length, n_mels=n_mels)
+        
+        spec = np.asarray(Image.open("temp/test_spec.png"))
+        spec = np.transpose(spec)
 
-    # extract a fixed length window
-    start_sample = 0 # starting at beginning
-    length_samples = time_steps*hop_length
-    window = y[start_sample:start_sample+length_samples]
-    
-    # convert to PNG
-    spectrogram_image(window, sr=sr, out=out, hop_length=hop_length, n_mels=n_mels)
-    
-    spec = np.asarray(Image.open("temp/test_spec.png"))
-    spec = np.transpose(spec)
-
-    # set up video reader
-    vidcap = cv2.VideoCapture("temp/test.mp4")
-    success, image = vidcap.read()
-
-    # gather all images in video
-    count = 0
-    images = []
-    while success:
-        count += 1
-        image = cv2.resize(image, dsize=(16, 16), interpolation=cv2.INTER_CUBIC)
-        images.append(image)
+        # set up video reader
+        vidcap = cv2.VideoCapture("temp/test.mp4")
         success, image = vidcap.read()
 
-    # sample images with audio spec
-    k = np.shape(images)[0] / np.shape(spec)[0]
-    k_index = np.asarray([int(i * k) for i in range(0, np.shape(spec)[0])])
-    sample_images = []
-    for i in k_index:
-        sample_images.append(images[i] / 255)
-        
-    # reformat images
-    images = np.asarray(sample_images)
-    shape = np.shape(images)
-    images = images.reshape((shape[0], shape[1] * shape[2] * shape[3]))
-    features = np.concatenate((spec / 255, images), axis=1).flatten()
-    features = np.reshape(features, (1, np.shape(features)[0]))
-    print(np.shape(features))
-    
-    model = models.load_model(config["model_dir"])
-    
-    y_pred = model.predict(features)
-    y_pred[y_pred < 0] = 0
-    y_pred = y_pred[0] / np.sum(y_pred)
-    sort_pred_ind = y_pred.argsort()
+        # gather all images in video
+        count = 0
+        images = []
+        while success:
+            count += 1
+            image = cv2.resize(image, dsize=(16, 16), interpolation=cv2.INTER_CUBIC)
+            images.append(image)
+            success, image = vidcap.read()
 
-    emotion_labels = ["uncertain", "pride", "elation", "joy", "satisfaction", "relief", "hope", "interest", "surprise", "sadness", "fear", "shame", "guilt", "envy", "disgust", "contempt", "anger"]
-    
-    for i in range(len(sort_pred_ind) - 1, len(sort_pred_ind) - 4, -1):
-        print(emotion_labels[sort_pred_ind[i]], y_pred[sort_pred_ind[i]] * 100)
+        # sample images with audio spec
+        k = np.shape(images)[0] / np.shape(spec)[0]
+        k_index = np.asarray([int(i * k) for i in range(0, np.shape(spec)[0])])
+        sample_images = []
+        for i in k_index:
+            image = images[i].reshape(16 * 16, 3)
+            sample_images.append(image / 255)
+            
+        # reformat images
+        images = np.asarray(sample_images)
+        shape = np.shape(images)
+        images = images.reshape(1, shape[0], shape[1], shape[2])
+        print(np.shape(images))
+        
+        shape = np.shape(spec)
+        spec = spec.reshape(1, shape[0], shape[1])
+        print(np.shape(spec))
+        # quit()
+        # shape = np.shape(images)
+        # images = images.reshape((shape[0], shape[1] * shape[2] * shape[3]))
+        # features = np.concatenate((spec / 255, images), axis=1).flatten()
+        # features = np.reshape(features, (1, np.shape(features)[0]))
+        
+        model = models.load_model(config["model_dir"])
+        y_pred = model.predict((images, spec / 255))[0]
+        # y_pred[y_pred < 0] = 0
+        # y_pred = y_pred[0] / np.sum(y_pred)
+        sort_pred_ind = y_pred.argsort()
+        print(y_pred)
+        print(sort_pred_ind)
+
+        emotion_labels = ["uncertain", "pride", "elation", "joy", "satisfaction", "relief", "hope", "interest", "surprise", "sadness", "fear", "shame", "guilt", "envy", "disgust", "contempt", "anger"]
+        
+        for j in range(len(sort_pred_ind) - 1, len(sort_pred_ind) - 4, -1):
+            input_csv[csv_i].append(emotion_labels[sort_pred_ind[j]])
+            input_csv[csv_i].append(str(y_pred[sort_pred_ind[j]] * 100) + "%")
+            # print(emotion_labels[sort_pred_ind[j]], y_pred[sort_pred_ind[j]] * 100)
+        
+    with open("test_output.csv", 'w') as csvfile:
+        writer = csv.writer(csvfile)
+        for row in input_csv:
+            writer.writerow(row)
