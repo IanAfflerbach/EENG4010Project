@@ -46,9 +46,9 @@ video_shape = np.shape(X_video)
 audio_shape = np.shape(X_audio)
 
 image_input = Input(video_shape[1:])
-image_conv = tf.keras.layers.Conv1D(128, 4, activation='relu')(image_input)
+image_conv = tf.keras.layers.Conv1D(128, 4, activation='sigmoid')(image_input)
 audio_input = Input(audio_shape[1:])
-audio_conv = tf.keras.layers.Conv1D(64, 4, activation='relu')(audio_input)
+audio_conv = tf.keras.layers.Conv1D(64, 4, activation='sigmoid')(audio_input)
 
 concat_layer = layers.Concatenate(axis=2)([image_conv, audio_conv])
 concat_flatten = layers.Flatten()(concat_layer)
