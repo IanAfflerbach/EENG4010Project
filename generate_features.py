@@ -20,9 +20,10 @@ for ci in range(0, len(config["videos"])):
     # gather all images in video
     count = 0
     images = []
+    height, width = 16, 16
     while success:
         count += 1
-        image = cv2.resize(image, dsize=(16, 16), interpolation=cv2.INTER_CUBIC)
+        image = cv2.resize(image, dsize=(height, width), interpolation=cv2.INTER_CUBIC)
         images.append(image)
         success, image = vidcap.read()
 
@@ -31,7 +32,7 @@ for ci in range(0, len(config["videos"])):
     k_index = np.asarray([int(i * k) for i in range(0, np.shape(spec)[0])])
     sample_images = []
     for i in k_index:
-        image = images[i].reshape(16 * 16, 3)
+        image = images[i].reshape(height * width * 3)
         sample_images.append(image / 255)
         
     # reformat images

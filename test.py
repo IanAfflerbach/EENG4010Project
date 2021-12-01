@@ -2,6 +2,7 @@ import argparse
 import json
 import cv2
 import csv
+import sys
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras import datasets, layers, models, Input, optimizers, losses, metrics
@@ -42,9 +43,9 @@ if __name__ == '__main__':
     config = {}
     with open('config.json', 'r') as infile:
         config = json.load(infile)
-        
+
     input_csv = []
-    with open("test_file.csv") as csvfile:
+    with open(sys.argv[1]) as csvfile:
         spamreader = csv.reader(csvfile)
         for row in spamreader:
             input_csv.append(row)
@@ -89,9 +90,10 @@ if __name__ == '__main__':
         # gather all images in video
         count = 0
         images = []
+        height, width = 16, 16
         while success:
             count += 1
-            image = cv2.resize(image, dsize=(16, 16), interpolation=cv2.INTER_CUBIC)
+            image = cv2.resize(image, dsize=(height, width), interpolation=cv2.INTER_CUBIC)
             images.append(image)
             success, image = vidcap.read()
 
@@ -100,18 +102,18 @@ if __name__ == '__main__':
         k_index = np.asarray([int(i * k) for i in range(0, np.shape(spec)[0])])
         sample_images = []
         for i in k_index:
-            image = images[i].reshape(16 * 16, 3)
+            image = images[i].reshape(height * width * 3)
             sample_images.append(image / 255)
             
         # reformat images
         images = np.asarray(sample_images)
         shape = np.shape(images)
-        images = images.reshape(1, shape[0], shape[1], shape[2])
-        print(np.shape(images))
+        images = images.reshape(1, shape[0], shape[1])
+        # print(np.shape(images))
         
         shape = np.shape(spec)
         spec = spec.reshape(1, shape[0], shape[1])
-        print(np.shape(spec))
+        # print(np.shape(spec))
         # quit()
         # shape = np.shape(images)
         # images = images.reshape((shape[0], shape[1] * shape[2] * shape[3]))
@@ -120,11 +122,10 @@ if __name__ == '__main__':
         
         model = models.load_model(config["model_dir"])
         y_pred = model.predict((images, spec / 255))[0]
-        # y_pred[y_pred < 0] = 0
-        # y_pred = y_pred[0] / np.sum(y_pred)
+        y_pred = np.delete(y_pred, 0)
         sort_pred_ind = y_pred.argsort()
-        print(y_pred)
-        print(sort_pred_ind)
+        # print(y_pred)
+        # print(sort_pred_ind)
 
         emotion_labels = ["uncertain", "pride", "elation", "joy", "satisfaction", "relief", "hope", "interest", "surprise", "sadness", "fear", "shame", "guilt", "envy", "disgust", "contempt", "anger"]
         
@@ -133,7 +134,7 @@ if __name__ == '__main__':
             input_csv[csv_i].append(str(y_pred[sort_pred_ind[j]] * 100) + "%")
             # print(emotion_labels[sort_pred_ind[j]], y_pred[sort_pred_ind[j]] * 100)
         
-    with open("test_output.csv", 'w') as csvfile:
+    with open("test_output.csv", 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         for row in input_csv:
             writer.writerow(row)

@@ -6,27 +6,12 @@ from tensorflow.keras import datasets, layers, models, Input, optimizers, losses
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
+# Get Config File
 config = {}
 with open('config.json', 'r') as infile:
     config = json.load(infile)
 
-'''
-VIDEO_FILE = "metadata/video_list.csv"
-df = pd.read_csv(VIDEO_FILE)
-arr = np.array([df["Online_id"], df["AVG_Valence"], df["AVG_Arousal"], df["AVG_Dominance"]])
-arr = [arr[:, i] for i in range(0, np.shape(arr)[1])]
-arr = {int(o[0]):o[1:] for o in arr}
-
-X = []
-Y = []
-for i in range(0, len(config["videos"])):
-    vid_cfg = config["videos"][i]
-    X.append(np.load(vid_cfg["input"]))
-    Y.append(arr[int(vid_cfg["id"])])
-X = np.asarray(X)
-Y = np.asarray(Y) / 9
-'''
-
+# Gather All Input/Output Data
 VIDEO_FILE = "metadata/online_ratings.csv"
 df = pd.read_csv(VIDEO_FILE)
 arr = np.array([df["Online_id"], df["Wheel_slice"]])
@@ -56,64 +41,34 @@ for i in range(0, len(Y)):
     
 y = np.asarray(y)
 
+# Define Model
 video_shape = np.shape(X_video)
 audio_shape = np.shape(X_audio)
 
-# n = np.shape(y)[1]
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+image_input = Input(video_shape[1:])
+image_conv = tf.keras.layers.Conv1D(128, 4, activation='relu')(image_input)
+audio_input = Input(audio_shape[1:])
+audio_conv = tf.keras.layers.Conv1D(64, 4, activation='relu')(audio_input)
 
-'''
-model = models.Sequential()
-model.add(Input(shape=n)) # input layer
-# model.add(layers.Dense(136))
-# model.add(layers.Dense(34))
-model.add(layers.Dense(17, activation="sigmoid")) # output layer
-# model.summary()
-
-model = models.Sequential()
-model.add(layers.Dense(34, input_shape=(n,)))
-model.add(layers.Activation('softmax'))
-model.add(layers.Dense(17))
-model.add(layers.Activation('sigmoid'))
-'''
-
-image_input = Input((video_shape[1], video_shape[2], video_shape[3]))
-audio_input = Input((audio_shape[1], audio_shape[2]))
-
-image_conv_0 = layers.Conv2D(32, kernel_size=(4, 4), activation='relu', kernel_initializer='he_uniform')(image_input)
-audio_conv_0 = layers.Conv1D(16, kernel_size=(2), activation='relu')(audio_input)
-
-image_flatten = layers.Flatten()(image_conv_0)
-audio_flatten = layers.Flatten()(audio_conv_0)
-
-concat_layer= layers.Concatenate()([image_flatten, audio_flatten])
-output = layers.Dense(17)(concat_layer)
+concat_layer = layers.Concatenate(axis=2)([image_conv, audio_conv])
+concat_flatten = layers.Flatten()(concat_layer)
+output = layers.Dense(17, activation='sigmoid')(concat_flatten)
 model = models.Model(inputs=[image_input, audio_input], outputs=output)
-
 # model.summary()
-model.compile(optimizer=tf.keras.optimizers.Adam(), loss=tf.keras.losses.CategoricalCrossentropy())
 
-'''
-print("Fit model on training data")
-history = model.fit(
-    X_train,
-    y_train,
-    batch_size=16,
-    epochs=64,
-    # We pass some validation for
-    # monitoring validation loss and metrics
-    # at the end of each epoch
-    validation_data=(X_test, y_test),
-)
-'''
+# Compile Model
+optimizer_function = tf.keras.optimizers.Adam(learning_rate=0.0001)
+loss_function = tf.keras.losses.CategoricalCrossentropy()
+model.compile(optimizer=optimizer_function, loss=loss_function, metrics=['accuracy'])
 
 history = model.fit(
     x=(X_video, X_audio),
     y=y,
-    batch_size=8,
-    epochs=8
+    batch_size=128,
+    epochs=16
 )
 
+# Save Model
 model.save("model")
 config["model_dir"] = "model"
 with open('config.json', 'w') as out:
