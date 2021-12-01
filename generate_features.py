@@ -2,7 +2,6 @@ import cv2
 import sys
 import json
 import numpy as np
-# np.set_printoptions(threshold=sys.maxsize)
 from PIL import Image
 
 config = {}
@@ -34,12 +33,8 @@ for ci in range(0, len(config["videos"])):
     for i in k_index:
         image = images[i].reshape(height * width * 3)
         sample_images.append(image / 255)
-        
-    # reformat images
+
     images = np.asarray(sample_images)
-    # shape = np.shape(images)
-    # images = images.reshape((shape[0], shape[1] * shape[2] * shape[3]))
-    # features = np.concatenate((spec / 255, images), axis=1) # .flatten()
 
     with open('features/video_input_features_' + str(config["videos"][ci]["id"]) + '.npy', 'wb') as f:
         np.save(f, images)

@@ -113,26 +113,17 @@ if __name__ == '__main__':
         
         shape = np.shape(spec)
         spec = spec.reshape(1, shape[0], shape[1])
-        # print(np.shape(spec))
-        # quit()
-        # shape = np.shape(images)
-        # images = images.reshape((shape[0], shape[1] * shape[2] * shape[3]))
-        # features = np.concatenate((spec / 255, images), axis=1).flatten()
-        # features = np.reshape(features, (1, np.shape(features)[0]))
         
         model = models.load_model(config["model_dir"])
         y_pred = model.predict((images, spec / 255))[0]
         y_pred = np.delete(y_pred, 0)
         sort_pred_ind = y_pred.argsort()
-        # print(y_pred)
-        # print(sort_pred_ind)
 
         emotion_labels = ["uncertain", "pride", "elation", "joy", "satisfaction", "relief", "hope", "interest", "surprise", "sadness", "fear", "shame", "guilt", "envy", "disgust", "contempt", "anger"]
         
         for j in range(len(sort_pred_ind) - 1, len(sort_pred_ind) - 4, -1):
             input_csv[csv_i].append(emotion_labels[sort_pred_ind[j]])
             input_csv[csv_i].append(str(y_pred[sort_pred_ind[j]] * 100) + "%")
-            # print(emotion_labels[sort_pred_ind[j]], y_pred[sort_pred_ind[j]] * 100)
         
     with open("test_output.csv", 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
