@@ -40,16 +40,19 @@ if __name__ == '__main__':
     n_mels = 128 # number of bins in spectrogram. Height of image
     time_steps = 384 # number of time-steps. Width of image
     
+    # Load Config
     config = {}
     with open('config.json', 'r') as infile:
         config = json.load(infile)
 
+    # Gather Input Links
     input_csv = []
     with open(sys.argv[1]) as csvfile:
         spamreader = csv.reader(csvfile)
         for row in spamreader:
             input_csv.append(row)
             
+    # Append Headers
     input_csv[0].append("1st label")
     input_csv[0].append("1st rating")
     input_csv[0].append("2nd label")
@@ -57,7 +60,9 @@ if __name__ == '__main__':
     input_csv[0].append("3rd label")
     input_csv[0].append("3rd rating")
 
+    # For Each Link
     for csv_i in range(1, len(input_csv)):
+        # Download Video
         test_url = input_csv[csv_i][2]
         video = YouTube(test_url)
         tag = video.streams.filter(file_extension = "mp4")[0].itag
@@ -114,6 +119,7 @@ if __name__ == '__main__':
         shape = np.shape(spec)
         spec = spec.reshape(1, shape[0], shape[1])
         
+        # Predict
         model = models.load_model(config["model_dir"])
         y_pred = model.predict((images, spec / 255))[0]
         y_pred = np.delete(y_pred, 0)
@@ -125,6 +131,7 @@ if __name__ == '__main__':
             input_csv[csv_i].append(emotion_labels[sort_pred_ind[j]])
             input_csv[csv_i].append(str(y_pred[sort_pred_ind[j]] * 100) + "%")
         
+    # Output Results
     with open("test_output.csv", 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
         for row in input_csv:

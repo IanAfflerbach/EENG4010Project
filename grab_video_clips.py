@@ -5,6 +5,7 @@ import json
 from pytube import YouTube
 import csv
 
+# Get all video rows
 VIDEO_FILE = "metadata/video_list.csv"
 df = pd.read_csv(VIDEO_FILE)
 arr = np.array([df["Online_id"], df["Youtube_link"], df["Highlight_start"], df["Artist"], df["Title"]])
@@ -16,9 +17,11 @@ test_file.append(["Artist", "Title", "Youtube Link"])
 config = {}
 config["videos"] = []
 
+# For Each video
 for x in arr:
     print("Downloading Video: %d" % x[0])
 
+    # Download Video
     video = None;
     try:
         video = YouTube(x[1])
@@ -29,6 +32,7 @@ for x in arr:
         print("Error Downloading Video: %d" % x[0])
         continue
   
+    # Extract trimmed video and audio
     try:
         with VideoFileClip("download/raw_videos/video_" + str(x[0]) + ".mp4") as clip:
             start = x[2]

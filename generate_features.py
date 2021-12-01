@@ -36,6 +36,7 @@ for ci in range(0, len(config["videos"])):
 
     images = np.asarray(sample_images)
 
+    # Save Features
     with open('features/video_input_features_' + str(config["videos"][ci]["id"]) + '.npy', 'wb') as f:
         np.save(f, images)
         

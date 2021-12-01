@@ -61,6 +61,7 @@ optimizer_function = tf.keras.optimizers.Adam()
 loss_function = tf.keras.losses.CategoricalCrossentropy()
 model.compile(optimizer=optimizer_function, loss=loss_function, metrics=['accuracy'])
 
+# Train Model
 history = model.fit(
     x=(X_video, X_audio),
     y=y,
@@ -69,6 +70,7 @@ history = model.fit(
     validation_split=0.33
 )
 
+# Show plot of Accuracy
 plt.plot(history.history['accuracy'])
 plt.plot(history.history['val_accuracy'])
 plt.title('model accuracy')
@@ -77,6 +79,7 @@ plt.xlabel('epoch')
 plt.legend(['train', 'val'], loc='upper left')
 plt.show()
 
+# Show plot of Loss
 plt.plot(history.history['loss'])
 plt.plot(history.history['val_loss'])
 plt.title('model loss')
