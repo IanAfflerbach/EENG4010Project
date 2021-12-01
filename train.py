@@ -57,7 +57,7 @@ model = models.Model(inputs=[image_input, audio_input], outputs=output)
 # model.summary()
 
 # Compile Model
-optimizer_function = tf.keras.optimizers.Adam(learning_rate=0.0001)
+optimizer_function = tf.keras.optimizers.Adam()
 loss_function = tf.keras.losses.CategoricalCrossentropy()
 model.compile(optimizer=optimizer_function, loss=loss_function, metrics=['accuracy'])
 
@@ -65,8 +65,25 @@ history = model.fit(
     x=(X_video, X_audio),
     y=y,
     batch_size=128,
-    epochs=16
+    epochs=32,
+    validation_split=0.33
 )
+
+plt.plot(history.history['accuracy'])
+plt.plot(history.history['val_accuracy'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train', 'val'], loc='upper left')
+plt.show()
+
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+plt.title('model loss')
+plt.ylabel('loss')
+plt.xlabel('epoch')
+plt.legend(['train', 'val'], loc='upper left')
+plt.show()
 
 # Save Model
 model.save("model")
